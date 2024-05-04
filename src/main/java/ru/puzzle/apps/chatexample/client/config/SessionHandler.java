@@ -14,7 +14,6 @@ public class SessionHandler extends StompSessionHandlerAdapter {
     @Override
     public void afterConnected(StompSession session, @NonNull StompHeaders connectedHeaders) {
         session.subscribe("/topic/greetings", this);
-        session.send("/app/endpoint", "{\"name\":\"Client\"}".getBytes());
 
         log.info("New session: {}", session.getSessionId());
     }
